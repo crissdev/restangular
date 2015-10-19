@@ -1,4 +1,17 @@
-(function() {
+(function(factory) {
+  'use strict';
+
+  if (typeof require === "function" && typeof exports === "object" && typeof module === "object") {
+    factory(require(["angular", "lodash"]), exports);
+  }
+  else if (typeof define === "function" && define["amd"]) {
+    define(["angular", "lodash"], factory);
+  }
+  else {
+    factory(window.angular, window._);
+  }
+})
+(function(angular, _) {
 
 var restangular = angular.module('restangular', []);
 
@@ -1347,4 +1360,5 @@ restangular.provider('Restangular', function() {
   }];
 });
 
-})();
+});
+

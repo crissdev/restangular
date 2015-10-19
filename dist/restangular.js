@@ -1,9 +1,22 @@
 /**
  * Restful Resources service for AngularJS apps
- * @version v1.4.0 - 2015-04-03 * @link https://github.com/mgonto/restangular
+ * @version v1.5.1 - 2015-10-19 * @link https://github.com/mgonto/restangular
  * @author Martin Gontovnikas <martin@gon.to>
  * @license MIT License, http://www.opensource.org/licenses/MIT
- */(function() {
+ */(function(factory) {
+  'use strict';
+
+  if (typeof require === "function" && typeof exports === "object" && typeof module === "object") {
+    factory(require(["angular", "lodash"]), exports);
+  }
+  else if (typeof define === "function" && define["amd"]) {
+    define(["angular", "lodash"], factory);
+  }
+  else {
+    factory(window.angular, window._);
+  }
+})
+(function(angular, _) {
 
 var restangular = angular.module('restangular', []);
 
@@ -1352,4 +1365,5 @@ restangular.provider('Restangular', function() {
   }];
 });
 
-})();
+});
+
