@@ -12,6 +12,7 @@
   }
 })
 (function(angular, _) {
+  'use strict';
 
 var restangular = angular.module('restangular', []);
 
